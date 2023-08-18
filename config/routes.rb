@@ -2,6 +2,8 @@
 
 Rails.application.routes.draw do
   
-  post '/auth/login', to: 'authenticate#login'
-  get  '/*a', to: 'application#not_found'
+  post '/auth/login', to: 'authentication#login'
+  #get  '/*a', to: 'application#not_found'
+
+  resources :users, only: [:index, :show, :create, :update, :destroy]
 end
